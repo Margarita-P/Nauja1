@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -9,7 +8,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h> 
-
+#include <chrono>
+#include <list>
+#include <deque>
+ 
 using namespace std;
 
 struct Studentas
@@ -18,22 +20,33 @@ struct Studentas
 	string lastname;
 	double finalVid;
 	double finalMed;
+	int kintamasis1;
 };
 
-vector<Studentas> S;
 int sk = 0;
 int n = 0;
 double suma = 0;
 double egz = 0;
-vector<double> pazymiai;
 string yes = "t";
 string no = "n";
-double number;
+string ka = "k";
+double number = 0;
+double number5 = 0;
+string FileName;
+vector <double> pazymiai;
 
 bool check(double number);
-BubbleSort2();
 double vidurkis();
+template <class T>
 double mediana();
-void ReadFromFile();
-void ZinomasStudentuSK();
-void NezinomasStudentuSK();
+template <class T>
+void ReadFromFile(T& S);
+template <class T>
+void ReadFromFile1(T& S);
+template <class T>
+void ZinomasStudentuSK(T& S);
+template <class T>
+void NezinomasStudentuSK(T& S);
+template <class T>
+void Print(T& S);
+void CreateFile();
