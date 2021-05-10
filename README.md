@@ -36,13 +36,12 @@ Tikrinimui buvo naudojami tie patys į failai: 100 studentų, 1000 studentų, 10
 ### Kompiuterio parametrai:  
 CPU - intel core i7  
 RAM - 16GB  
-HDD - 469 GB  
-HDD - 469 GB    
-## Duomenų nuskaitymas    
+HDD - 469 GB     
+### Duomenų nuskaitymas    
 ![image](https://user-images.githubusercontent.com/79039786/115520727-20da4600-a293-11eb-88f5-a1b8c0bc56f5.png)  
-## Duomenų išvedimas  
+### Duomenų išvedimas  
 ![image](https://user-images.githubusercontent.com/79039786/115520656-0c964900-a293-11eb-9866-c99296bed45a.png)  
-## Išvados  
+### Išvados  
 List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.
 List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.  
 # Versija-1.0  
@@ -61,5 +60,5 @@ Spartos analizė buvo daroma su vector, list ir deque konteineriais.
 ![image](https://user-images.githubusercontent.com/79039786/117584153-e76b5c80-b113-11eb-9cd6-64a2574c5197.png)  
 ### Strategija 3  
 ![image](https://user-images.githubusercontent.com/79039786/117584161-f6520f00-b113-11eb-98fc-d952d749f075.png)  
-## Išvados  
+### Išvados  
 Aiškiai matosi, kad Strategija 1 veikia greičiausiai su visais konteineriais, o strategija 2 veikia lėčiausiai. Su paskutiniais failais net nesuskaičiavo.
