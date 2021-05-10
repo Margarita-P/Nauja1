@@ -50,3 +50,11 @@ void NezinomasStudentuSK(T& S);
 template <class T>
 void Print(T& S);
 void CreateFile();
+template <class T>
+void Strategija1(T& S, T& G, T& V);
+template <class T>
+void Strategija2(T& S, T& V);
+template <class T>
+void Strategija11(T& S, T& G, T& V);
+template <class T>
+void Strategija22(T& S, T& V);
