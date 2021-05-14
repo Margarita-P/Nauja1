@@ -73,7 +73,12 @@ template <class T>
 double mediana();
 template <class T>
 void print(T Stud, long int a);
-void ReadFromFile(deque <Studentas>& S);
+template <class T>
+void ReadFromFile(T& S);
+template <class T>
+void ZinomasStudentuSK(T& S);
+template <class T>
+void NezinomasStudentuSK(T& S);
 void CreateFile();
 template <class T>
 void Strategija1(T& S, T& G, T& V);
