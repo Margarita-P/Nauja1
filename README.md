@@ -61,4 +61,12 @@ Spartos analizė buvo daroma su vector, list ir deque konteineriais.
 ### Strategija 3  
 ![image](https://user-images.githubusercontent.com/79039786/117584161-f6520f00-b113-11eb-98fc-d952d749f075.png)  
 ### Išvados  
-Aiškiai matosi, kad Strategija 1 veikia greičiausiai su visais konteineriais, o strategija 2 veikia lėčiausiai. Su paskutiniais failais net nesuskaičiavo.
+Aiškiai matosi, kad Strategija 1 veikia greičiausiai su visais konteineriais, o strategija 2 veikia lėčiausiai. Su paskutiniais failais net nesuskaičiavo.  
+# Versija-1.1  
+Versija-1.1 yra Versijos-1.0 patobulinimas.  
+Iš struktūros (struct) pereinama į klases (class). Taip pat atitinkamai pakeičiama programa.  
+## Spartos Analizė  
+Spartos analizė yra atliekama su deque konteineriu, tais pačiais kursiokai.txt failais. Lyginima yra struct ir class veikimo sparta, bei kompiliuojant class su optimizavimo flag'ais.  
+![image](https://user-images.githubusercontent.com/79039786/118312866-b2d41800-b4fa-11eb-896a-57328d38555e.png)
+
+
