@@ -13,7 +13,7 @@
 
 using namespace std;
 
-class Studentas
+class Studentas : public Person
 {
     private:
 	    string name;
