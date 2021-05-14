@@ -1,4 +1,4 @@
-#include "funkcijos.h"
+#include "funkcijos-class.h"
 
 using namespace std;
 
