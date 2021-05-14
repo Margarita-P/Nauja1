@@ -45,3 +45,32 @@ HDD - 469 GB
 # Išvados  
 List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.
 List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.  
+# Versija-1.0  
+Versija-1.0 - Versijos.0.5 patobulinimas.   
+Buvo pridėtos dvi strategijos studentų grupavimui į "Vargšiukus" ir "Galvotukus".    
+Strategija 1: Bendro studentai konteinerio skaidymas į du naujus konteinerius "V" ir "G".  
+Strategija 2: Bendro studentai konteinerio skaidymas į vieną naują konteinerį "V" ir tų duomenų ištrinimas iš bendro studentai konteinerio.  
+## Spartos Analizė  
+Su šiomis strategijomis bei strategija, kuri buvo naudojama praeitose versijose buvo testuojama programos sparta sugrupuoti studentus. 
+Naudojami buvo tie patys 5 failai kaip versijoje 0.5. 
+Spartos analizė buvo daroma su vector, list ir deque konteineriais.  
+"-" - reiškia, kad nepavyko apskaičiuoti, per daug ilgai užtruko.  
+### Strategija 1  
+![image](https://user-images.githubusercontent.com/79039786/117584057-48466500-b113-11eb-97ac-8c8f798c4c3f.png)  
+### Strategija 2  
+![image](https://user-images.githubusercontent.com/79039786/117584153-e76b5c80-b113-11eb-9cd6-64a2574c5197.png)  
+### Strategija 3  
+![image](https://user-images.githubusercontent.com/79039786/117584161-f6520f00-b113-11eb-98fc-d952d749f075.png)  
+### Išvados  
+Aiškiai matosi, kad Strategija 1 veikia greičiausiai su visais konteineriais, o strategija 2 veikia lėčiausiai. Su paskutiniais failais net nesuskaičiavo.  
+# Versija-1.1  
+Versija-1.1 yra Versijos-1.0 patobulinimas.  
+Iš struktūros (struct) pereinama į klases (class). Taip pat atitinkamai pakeičiama programa.  
+## Spartos Analizė  
+Spartos analizė yra atliekama su deque konteineriu, tais pačiais kursiokai.txt failais. Lyginima yra struct ir class veikimo sparta, bei kompiliuojant class su optimizavimo flag'ais.  
+![image](https://user-images.githubusercontent.com/79039786/118312866-b2d41800-b4fa-11eb-896a-57328d38555e.png)  
+### Išvados  
+Matosi, kad class veikia greičiau nei struct, bei optimizavimo flag'ai padaro didelę įtaką veikimo spartai.  
+# Versija-1.2  
+Versija-1.2 yra Versijos-1.1 patobulinimas.  
+Buvo pritaikyta "rule of three".
