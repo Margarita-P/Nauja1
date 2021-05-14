@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -14,14 +13,44 @@
 
 using namespace std;
 
-struct class
+class Studentas : public Person
 {
-  public:
-	  string name;
-	  string lastname;
-	  double finalVid;
-	  double finalMed;
-	  int kintamasis1;
+    private:
+	    string name;
+	    string lastname;
+	    double finalVid;
+	    double finalMed;
+	    int kintamasis1;
+	
+	public:
+		Studentas(string n, string ln, double fv, double fm, int ki)
+		{
+			name = n;
+	    		lastname = ln;
+	   	 	finalVid = fv;
+	   		finalMed = fm;
+	    		kintamasis1 = ki;
+		}
+		string getName() const
+		{
+			return name;
+		}
+		string getLastname() const
+		{
+			return lastname;
+		}
+		double getFinalVid() const
+		{
+			return finalVid;
+		}
+		double getFinalMed() const
+		{
+			return finalMed;
+		}
+		int getKint1() const
+		{
+			return kintamasis1;
+		}
 };
 
 int sk = 0;
@@ -35,19 +64,21 @@ double number = 0;
 double number5 = 0;
 string FileName;
 vector <double> pazymiai;
+int n1 = 0, n2 = 0;
+string FileName2;
 
 bool check(double number);
 double vidurkis();
 template <class T>
 double mediana();
 template <class T>
-void ReadFromFile(T& S);
+void print(T Stud, long int a);
 template <class T>
-void ReadFromFile1(T& S);
+void ReadFromFile(T& S);
 template <class T>
 void ZinomasStudentuSK(T& S);
 template <class T>
 void NezinomasStudentuSK(T& S);
-template <class T>
-void Print(T& S);
 void CreateFile();
+template <class T>
+void Strategija1(T& S, T& G, T& V);
