@@ -73,7 +73,7 @@ template <class T>
 double mediana();
 template <class T>
 void print(T Stud, long int a);
-void ReadFromFile(vector <Studentas>& S);
+void ReadFromFile(deque <Studentas>& S);
 void CreateFile();
 template <class T>
 void Strategija1(T& S, T& G, T& V);
