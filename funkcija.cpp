@@ -1,4 +1,4 @@
-#include "funkcija1.h"
+#include "funkcijos.h"
 
 using namespace std;
 
@@ -456,7 +456,7 @@ void NezinomasStudentuSK(T& S)
 	if (answer6 == yes)
 		NezinomasStudentuSK(S);
 }
-template <class T>
+/*template <class T>
 void Print1(T& S)
 {
 	string answer7;
@@ -476,7 +476,7 @@ void Print1(T& S)
 		for (int i = 0; i < n; i++)
 			cout << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << endl;
 	}
-}
+}*/
 void CreateFile()
 {
 	string v = "Vardas";
