@@ -26,10 +26,10 @@ class Studentas
 		Studentas(string n, string ln, double fv, double fm, int ki)
 		{
 			name = n;
-	    	lastname = ln;
+	    		lastname = ln;
 	   	 	finalVid = fv;
 	   		finalMed = fm;
-	    	kintamasis1 = ki;
+	    		kintamasis1 = ki;
 		}
 		string getName() const
 		{
