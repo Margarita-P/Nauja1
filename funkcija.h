@@ -10,6 +10,7 @@
 #include <chrono>
 #include <list>
 #include <deque>
+#include "person.h"
 
 using namespace std;
 
@@ -25,8 +26,6 @@ class Studentas : public Person
 	public:
 		Studentas(string n, string ln, double fv, double fm, int ki)
 		{
-			name = n;
-	    		lastname = ln;
 	   	 	finalVid = fv;
 	   		finalMed = fm;
 	    		kintamasis1 = ki;
