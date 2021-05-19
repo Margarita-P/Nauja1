@@ -82,9 +82,9 @@ int main()
 					ReadFromFile(S);
 					Strategija1(S, G, V);
                     			FileName2 = vargsiukai;
-                    			print(G,G.size());
+                    			print2(G,G.size());
                     			FileName2 = galvotukai;
-                    			print(V,V.size());
+                    			print2(V,V.size());
 				}
 			}
 		}
