@@ -52,6 +52,17 @@ void print(T Stud, long int a)
 	}
 	out.close();
 }
+template <class T>
+void print2(T Stud, long int a)
+{
+	ofstream out(FileName2);
+	for(long int i = 0; i<a; i++)
+	{
+		out << Stud.back().getName() << setw(20) << setfill(' ') << Stud.back().getLastname() << setw(30) << setfill(' ') << setprecision(3) << Stud.back().getFinalVid() << endl;
+		Stud.pop_back();
+	}
+	out.close();
+}
 void ReadFromFile(deque <Studentas>& S)
 {
 	string name1;
