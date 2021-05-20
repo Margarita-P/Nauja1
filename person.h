@@ -7,16 +7,16 @@ class Person{
         string name;
         string lastname;
         double finalVid;
-	    double finalMed;
+	double finalMed;
     public:
         string getName() const { return name; }
-		string getLastname() const { return lastname; }
+	string getLastname() const { return lastname; }
         double getFinalVid() const { return finalVid; }
-		double getFinalMed() const { return finalMed; }
+	double getFinalMed() const { return finalMed; }
         void setName(string n) { name = n; }
-		void setLastname(string ln) { lastname = ln; }
+	void setLastname(string ln) { lastname = ln; }
         void setFinalVid(double fv) { finalVid = fv; }
-		void setFinalMed(double fm) { finalMed = fm; }
+	void setFinalMed(double fm) { finalMed = fm; }
         virtual ~Person () = 0;
 };
 
