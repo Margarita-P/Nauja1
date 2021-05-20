@@ -3,7 +3,6 @@
 int main()
 {
 	int conteiner;
-	
 	string answer1, answer2;
 	string galvotukai;
 	string vargsiukai;
@@ -163,7 +162,7 @@ int main()
 						ofstream out4(galvotukai);
 						ofstream out5(vargsiukai);
 						auto start = chrono::steady_clock::now();
-						ReadFromFile1(S);
+						ReadFromFile(S);
 						cout << "Nuskaityti faila su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
 						auto start1 = chrono::steady_clock::now();
 						for (int j = 0; j < n; j++)
