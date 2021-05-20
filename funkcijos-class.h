@@ -23,34 +23,42 @@ class Studentas
 	    int kintamasis1;
 	
 	public:
-		Studentas(string n, string ln, double fv, double fm, int ki)
+		Studentas()
 		{
-			name = n;
-	    		lastname = ln;
-	   	 	finalVid = fv;
-	   		finalMed = fm;
-	    		kintamasis1 = ki;
+			name = "";
+	    		lastname = "";
+	   	 	finalVid = 0;
+	   		finalMed = 0;
+	    		kintamasis1 = 0;
 		}
-		string getName() const
+		string getName() const { return name; }
+		string getLastname() const { return lastname; }
+		double getFinalVid() const { return finalVid; }
+		double getFinalMed() const { return finalMed; }
+		int getKint1() const { return kintamasis1; }
+
+		void setName(string n) { name = n; }
+		void setLastname(string ln) { lastname = ln; }
+		void setFinalVid(double fv) { finalVid = fv; }
+		void setFinalMed(double fm) { finalMed = fm; }
+		void setKint1(int ki) { kintamasis1 = ki; }
+
+		Studentas(const Studentas& t) :
+			name(t.name), lastname(t.lastname),
+			finalVid(t.finalVid), finalMed(t.finalMed),
+			kintamasis1(t.kintamasis1) {}
+
+		Studentas& operator=(const Studentas& t)
 		{
-			return name;
+			name = t.name;
+			lastname = t.lastname;
+			finalVid = t.finalVid;
+			finalMed = t.finalMed;
+			kintamasis1 = t.kintamasis1;
+			return *this;
 		}
-		string getLastname() const
-		{
-			return lastname;
-		}
-		double getFinalVid() const
-		{
-			return finalVid;
-		}
-		double getFinalMed() const
-		{
-			return finalMed;
-		}
-		int getKint1() const
-		{
-			return kintamasis1;
-		}
+
+		~Studentas() {};
 };
 
 int sk = 0;
