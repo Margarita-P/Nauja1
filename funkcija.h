@@ -22,10 +22,10 @@ class Studentas : public Person
 		Studentas()
 		{
 			Person::name = "";
-	    	Person::lastname = "";
+	    		Person::lastname = "";
 	   	 	Person::finalVid = 0;
 	   		Person::finalMed = 0;
-	    	kintamasis1 = 0;
+	    		kintamasis1 = 0;
 		}
 
 		int getKint1() const { return kintamasis1; }
