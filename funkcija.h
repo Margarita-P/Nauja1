@@ -10,46 +10,48 @@
 #include <chrono>
 #include <list>
 #include <deque>
-#include "person.h"
 
 using namespace std;
 
 class Studentas : public Person
 {
     private:
-	    string name;
-	    string lastname;
-	    double finalVid;
-	    double finalMed;
 	    int kintamasis1;
 	
 	public:
-		Studentas(string n, string ln, double fv, double fm, int ki)
+		Studentas()
 		{
-	   	 	finalVid = fv;
-	   		finalMed = fm;
-	    		kintamasis1 = ki;
+			Person::name = "";
+	    	Person::lastname = "";
+	   	 	Person::finalVid = 0;
+	   		Person::finalMed = 0;
+	    	kintamasis1 = 0;
 		}
-		string getName() const
+
+		int getKint1() const { return kintamasis1; }
+
+		void setKint1(int ki) { kintamasis1 = ki; }
+
+		Studentas(const Studentas& t) :
+			kintamasis1(t.kintamasis1) 
+			{
+				name = t.getName();
+				lastname = t.getLastname();
+				finalVid = t.finalVid;
+				finalMed = t.finalMed;
+			}
+
+		Studentas& operator=(const Studentas& t)
 		{
-			return name;
+			name = t.name;
+			lastname = t.lastname;
+			finalVid = t.finalVid;
+			finalMed = t.finalMed;
+			kintamasis1 = t.kintamasis1;
+			return *this;
 		}
-		string getLastname() const
-		{
-			return lastname;
-		}
-		double getFinalVid() const
-		{
-			return finalVid;
-		}
-		double getFinalMed() const
-		{
-			return finalMed;
-		}
-		int getKint1() const
-		{
-			return kintamasis1;
-		}
+
+		~Studentas() {};
 };
 
 int sk = 0;
@@ -72,6 +74,8 @@ template <class T>
 double mediana();
 template <class T>
 void print(T Stud, long int a);
+template <class T>
+void print2(T Stud, long int a);
 template <class T>
 void ReadFromFile(T& S);
 template <class T>
