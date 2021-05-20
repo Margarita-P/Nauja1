@@ -43,6 +43,28 @@ double mediana()
 	return med;
 }
 template <class T>
+void print(T Stud, long int a)
+{
+	ofstream out(FileName2);
+	for(long int i = 0; i<a; i++)
+	{
+		out << Stud.front().getName() << setw(20) << setfill(' ') << Stud.front().getLastname() << setw(30) << setfill(' ') << setprecision(3) << Stud.front().getFinalVid() << endl;
+		Stud.pop_front();
+	}
+	out.close();
+}
+template <class T>
+void print2(T Stud, long int a)
+{
+	ofstream out(FileName2);
+	for(long int i = 0; i<a; i++)
+	{
+		out << Stud.back().getName() << setw(20) << setfill(' ') << Stud.back().getLastname() << setw(30) << setfill(' ') << setprecision(3) << Stud.back().getFinalVid() << endl;
+		Stud.pop_back();
+	}
+	out.close();
+}
+template <class T>
 void ReadFromFile(T& S)
 {
 	string name1;
@@ -392,27 +414,6 @@ void NezinomasStudentuSK(T& S)
 	if (answer6 == yes)
 		NezinomasStudentuSK(S);
 }
-template <class T>
-void Print(T& S)
-{
-	string answer7;
-	cout << "Ar norite su vidurkiu (t) ar su mediana (n) skaiciuoto galutinio balo?: ";
-	cin >> answer7;
-	if (answer7 == yes)
-	{
-		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (vid)" << endl;
-		cout << "______________________________________________" << endl;
-		for (int i = 0; i < n; i++)
-			cout << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(20) << setfill(' ') << setprecision(3) << S[i].finalVid << endl;
-	}
-	else if (answer7 == no)
-	{
-		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
-		cout << "______________________________________________" << endl;
-		for (int i = 0; i < n; i++)
-			cout << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << endl;
-	}
-}
 void CreateFile()
 {
 	string v = "Vardas";
@@ -448,4 +449,16 @@ void CreateFile()
 	}
 	cout << "Sugeneruoti faila su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
 	out.close();
+}
+template <class T>
+void Strategija1(T& S, T& G, T& V)
+{
+	n1 = 0;
+	n2 = 0;
+	G.clear();
+	V.clear();
+	auto start = chrono::steady_clock::now();
+	copy_if(S.begin(), S.end(), back_inserter(G), [](Studentas const& a) {return a.getFinalVid() >= 5;});
+	copy_if(S.begin(), S.end(), back_inserter(V), [](Studentas const& a) {return a.getFinalVid() < 5;});
+	cout << "Sugrupiuoti studentus i 'Galvotukus' ir 'Vargsiukus', faile su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
 }
