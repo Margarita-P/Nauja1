@@ -45,6 +45,12 @@ double mediana()
 template <class T>
 void ReadFromFile(T& S)
 {
+	string name1;
+	string lastname1;
+	double finalVid1;
+	double finalMed1;
+	int kintamasis11;
+	Studentas St;
 	S.clear();
 	n = 0;
 	ifstream in(FileName);
@@ -67,9 +73,10 @@ void ReadFromFile(T& S)
 		for (int i = 0; !in.eof(); i++)
 		{
 			suma = 0;
-			S.push_back(Studentas());
-			in >> S[i].name;
-			in >> S[i].lastname;
+			in >> name1;
+			in >> lastname1;
+			St.setName(name1);
+			St.setLastname(lastname1);
 			pazymiai.clear();
 			for (int j = 0; j < sk; j++)
 			{
@@ -81,74 +88,19 @@ void ReadFromFile(T& S)
 			double kint3 = vidurkis();
 			if (kint3 > 5 || kint3 == 5)
 			{
-				S[i].kintamasis1 = 1;
+				kintamasis11 = 1;
 			}
 			else if (kint3 < 5)
 			{
-				S[i].kintamasis1 = 0;
+				kintamasis11 = 0;
 			}
-			S[i].finalVid = vidurkis();
-			S[i].finalMed = mediana();
+			finalVid1 = vidurkis();
+			finalMed1 = mediana();
+			St.setFinalVid(finalVid1);
+			St.setFinalMed(finalMed1);
+			St.setKint1(kintamasis11);
+			S.push_back(St);
 			n = i;
-		}
-		in.close();
-	}
-	catch (int ex3)
-	{
-		cout << "Duomenu failas nerastas" << endl;
-		exit;
-	}
-}
-template <class T>
-void ReadFromFile1(T& S)
-{
-	Studentas Student;
-	n = 0;
-	ifstream in(FileName);
-	string x;
-	int y;
-	string a, b;
-	try {
-		if (!in)
-		{
-			throw 1;
-		}
-		for (int i = 0; i < 100; i++)
-		{
-			in >> x;
-			if (x == "Egz.")
-			{
-				sk = i - 2;
-				break;
-			}
-		}
-		for (int i = 0; !in.eof(); i++)
-		{
-			///Studentas Student;
-			in >> Student.name;
-			in >> Student.lastname;
-			suma = 0;
-			pazymiai.clear();
-			for (int j = 0; j < sk; j++)
-			{
-				in >> y;
-				suma = suma + y;
-				pazymiai.push_back(y);
-			}
-			in >> egz;
-			double kint3 = vidurkis();
-			if (kint3 > 5 || kint3 == 5)
-			{
-				Student.kintamasis1 = 1;
-			}
-			else if (kint3 < 5)
-			{
-				Student.kintamasis1 = 0;
-			}
-			Student.finalVid = vidurkis();
-			Student.finalMed = mediana();
-			n = i;
-			S.push_back(Student);
 		}
 		in.close();
 	}
