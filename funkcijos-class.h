@@ -82,6 +82,8 @@ double mediana();
 template <class T>
 void print(T Stud, long int a);
 template <class T>
+void print2(T Stud, long int a);
+template <class T>
 void ReadFromFile(T& S);
 template <class T>
 void ZinomasStudentuSK(T& S);
