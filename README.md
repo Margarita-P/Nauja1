@@ -73,5 +73,9 @@ Spartos analizė yra atliekama su deque konteineriu, tais pačiais kursiokai.txt
 Matosi, kad class veikia greičiau nei struct, bei optimizavimo flag'ai padaro didelę įtaką veikimo spartai.  
 # Versija-1.2  
 Versija-1.2 yra Versijos-1.1 patobulinimas.  
-Buvo pritaikyta "rule of three".
-
+Buvo pritaikyta "rule of three" bei pakeisti Class Studentas "setteriai".  
+Paleidimas: makefile.  
+# Versija-1.5  
+Versija-1.5 yra Versijos-1.2 patobulinimas.  
+Iš vienos klasės "Studentas" buvo pereita prie dviejų: bazinės klasės "Person", skirtą aprašyti žmogų, ir jos išvestinę klasę "Studentas".   
+Paleidimas: makefile.
