@@ -1,3 +1,18 @@
 run: 
 	g++ -std=c++11 main.cpp -o main
 	./main
+
+flag1:
+	g++ -O1 -std=c++11 main.cpp -o main
+	./main
+
+flag2:
+	g++ -O2 -std=c++11 main.cpp -o main
+	./main
+
+flag3:
+	g++ -O3 -std=c++11 main.cpp -o main
+	./main
+
+clean: 
+	del *.exe
