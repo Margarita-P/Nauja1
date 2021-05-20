@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 bool check(double number)
 {
 	if (number > 0 && number <= 10)
