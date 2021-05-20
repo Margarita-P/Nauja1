@@ -43,8 +43,36 @@ double mediana()
 	return med;
 }
 template <class T>
+void print(T Stud, long int a)
+{
+	ofstream out(FileName2);
+	for(long int i = 0; i<a; i++)
+	{
+		out << Stud.front().getName() << setw(20) << setfill(' ') << Stud.front().getLastname() << setw(30) << setfill(' ') << setprecision(3) << Stud.front().getFinalVid() << endl;
+		Stud.pop_front();
+	}
+	out.close();
+}
+template <class T>
+void print2(T Stud, long int a)
+{
+	ofstream out(FileName2);
+	for(long int i = 0; i<a; i++)
+	{
+		out << Stud.back().getName() << setw(20) << setfill(' ') << Stud.back().getLastname() << setw(30) << setfill(' ') << setprecision(3) << Stud.back().getFinalVid() << endl;
+		Stud.pop_back();
+	}
+	out.close();
+}
+template <class T>
 void ReadFromFile(T& S)
 {
+	string name1;
+	string lastname1;
+	double finalVid1;
+	double finalMed1;
+	int kintamasis11;
+	Studentas St;
 	S.clear();
 	n = 0;
 	ifstream in(FileName);
@@ -67,9 +95,10 @@ void ReadFromFile(T& S)
 		for (int i = 0; !in.eof(); i++)
 		{
 			suma = 0;
-			S.push_back(Studentas());
-			in >> S[i].name;
-			in >> S[i].lastname;
+			in >> name1;
+			in >> lastname1;
+			St.setName(name1);
+			St.setLastname(lastname1);
 			pazymiai.clear();
 			for (int j = 0; j < sk; j++)
 			{
@@ -81,74 +110,19 @@ void ReadFromFile(T& S)
 			double kint3 = vidurkis();
 			if (kint3 > 5 || kint3 == 5)
 			{
-				S[i].kintamasis1 = 1;
+				kintamasis11 = 1;
 			}
 			else if (kint3 < 5)
 			{
-				S[i].kintamasis1 = 0;
+				kintamasis11 = 0;
 			}
-			S[i].finalVid = vidurkis();
-			S[i].finalMed = mediana();
+			finalVid1 = vidurkis();
+			finalMed1 = mediana();
+			St.setFinalVid(finalVid1);
+			St.setFinalMed(finalMed1);
+			St.setKint1(kintamasis11);
+			S.push_back(St);
 			n = i;
-		}
-		in.close();
-	}
-	catch (int ex3)
-	{
-		cout << "Duomenu failas nerastas" << endl;
-		exit;
-	}
-}
-template <class T>
-void ReadFromFile1(T& S)
-{
-	Studentas Student;
-	n = 0;
-	ifstream in(FileName);
-	string x;
-	int y;
-	string a, b;
-	try {
-		if (!in)
-		{
-			throw 1;
-		}
-		for (int i = 0; i < 100; i++)
-		{
-			in >> x;
-			if (x == "Egz.")
-			{
-				sk = i - 2;
-				break;
-			}
-		}
-		for (int i = 0; !in.eof(); i++)
-		{
-			///Studentas Student;
-			in >> Student.name;
-			in >> Student.lastname;
-			suma = 0;
-			pazymiai.clear();
-			for (int j = 0; j < sk; j++)
-			{
-				in >> y;
-				suma = suma + y;
-				pazymiai.push_back(y);
-			}
-			in >> egz;
-			double kint3 = vidurkis();
-			if (kint3 > 5 || kint3 == 5)
-			{
-				Student.kintamasis1 = 1;
-			}
-			else if (kint3 < 5)
-			{
-				Student.kintamasis1 = 0;
-			}
-			Student.finalVid = vidurkis();
-			Student.finalMed = mediana();
-			n = i;
-			S.push_back(Student);
 		}
 		in.close();
 	}
@@ -440,27 +414,6 @@ void NezinomasStudentuSK(T& S)
 	if (answer6 == yes)
 		NezinomasStudentuSK(S);
 }
-template <class T>
-void Print(T& S)
-{
-	string answer7;
-	cout << "Ar norite su vidurkiu (t) ar su mediana (n) skaiciuoto galutinio balo?: ";
-	cin >> answer7;
-	if (answer7 == yes)
-	{
-		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (vid)" << endl;
-		cout << "______________________________________________" << endl;
-		for (int i = 0; i < n; i++)
-			cout << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(20) << setfill(' ') << setprecision(3) << S[i].finalVid << endl;
-	}
-	else if (answer7 == no)
-	{
-		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
-		cout << "______________________________________________" << endl;
-		for (int i = 0; i < n; i++)
-			cout << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << endl;
-	}
-}
 void CreateFile()
 {
 	string v = "Vardas";
@@ -496,4 +449,16 @@ void CreateFile()
 	}
 	cout << "Sugeneruoti faila su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
 	out.close();
+}
+template <class T>
+void Strategija1(T& S, T& G, T& V)
+{
+	n1 = 0;
+	n2 = 0;
+	G.clear();
+	V.clear();
+	auto start = chrono::steady_clock::now();
+	copy_if(S.begin(), S.end(), back_inserter(G), [](Studentas const& a) {return a.getFinalVid() >= 5;});
+	copy_if(S.begin(), S.end(), back_inserter(V), [](Studentas const& a) {return a.getFinalVid() < 5;});
+	cout << "Sugrupiuoti studentus i 'Galvotukus' ir 'Vargsiukus', faile su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
 }
