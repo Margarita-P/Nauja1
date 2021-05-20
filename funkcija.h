@@ -10,6 +10,7 @@
 #include <chrono>
 #include <list>
 #include <deque>
+#include "person.h"
 
 using namespace std;
 
