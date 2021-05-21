@@ -80,5 +80,5 @@ Versija-1.5 yra Versijos-1.2 patobulinimas.
 Iš vienos klasės "Studentas" buvo pereita prie dviejų: bazinės klasės "Person", skirtą aprašyti žmogų, ir jos išvestinę klasę "Studentas".   
 Paleidimas: makefile.
 # Versija-2.0  
-Buvo sukurta Doxygen dokumentacija, pridėtas automatinio diegimo failas ir atlikti Unit testai. 
+Buvo sukurta Doxygen dokumentacija, pridėtas automatinio diegimo failas ir atlikti Unit testai.   
 Programos kodas - Versija-1.5
