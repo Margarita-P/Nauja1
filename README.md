@@ -62,4 +62,23 @@ Spartos analizė buvo daroma su vector, list ir deque konteineriais.
 ### Strategija 3  
 ![image](https://user-images.githubusercontent.com/79039786/117584161-f6520f00-b113-11eb-98fc-d952d749f075.png)  
 ## Išvados  
-Aiškiai matosi, kad Strategija 1 veikia greičiausiai su visais konteineriais, o strategija 2 veikia lėčiausiai. Su paskutiniais failais net nesuskaičiavo.
+Aiškiai matosi, kad Strategija 1 veikia greičiausiai su visais konteineriais, o strategija 2 veikia lėčiausiai. Su paskutiniais failais net nesuskaičiavo.  
+# Versija-1.1  
+Versija-1.1 yra Versijos-1.0 patobulinimas.  
+Iš struktūros (struct) pereinama į klases (class). Taip pat atitinkamai pakeičiama programa.  
+## Spartos Analizė  
+Spartos analizė yra atliekama su deque konteineriu, tais pačiais kursiokai.txt failais. Lyginima yra struct ir class veikimo sparta, bei kompiliuojant class su optimizavimo flag'ais.  
+![image](https://user-images.githubusercontent.com/79039786/118312866-b2d41800-b4fa-11eb-896a-57328d38555e.png)  
+### Išvados  
+Matosi, kad class veikia greičiau nei struct, bei optimizavimo flag'ai padaro didelę įtaką veikimo spartai.  
+# Versija-1.2  
+Versija-1.2 yra Versijos-1.1 patobulinimas.  
+Buvo pritaikyta "rule of three" bei pakeisti Class Studentas "setteriai".  
+Paleidimas: makefile.  
+# Versija-1.5  
+Versija-1.5 yra Versijos-1.2 patobulinimas.  
+Iš vienos klasės "Studentas" buvo pereita prie dviejų: bazinės klasės "Person", skirtą aprašyti žmogų, ir jos išvestinę klasę "Studentas".   
+Paleidimas: makefile.
+# Versija-2.0  
+Buvo sukurta Doxygen dokumentacija, pridėtas automatinio diegimo failas ir atlikti Unit testai. 
+Programos kodas - Versija-1.5
