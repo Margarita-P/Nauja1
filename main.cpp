@@ -1,4 +1,4 @@
-#include "funkcijos1.cpp"
+#include "funkcija.cpp"
 
 int main()
 {
@@ -38,7 +38,7 @@ int main()
 							throw 1;
 						}
 						ZinomasStudentuSK(S);
-						Print(S);
+						Print2(S);
 					}
 					catch (int ex1)
 					{
@@ -49,19 +49,21 @@ int main()
 				else if (answer2 == no)
 				{
 					NezinomasStudentuSK(S);
-					Print(S);
+					Print2(S);
 				}
 			}
 			else if (answer1 == no)
 			{
-				FileName = "kursiokai.txt";
+				/*FileName = "kursiokai.txt";
 				ReadFromFile(S);
 				ofstream fr("rez.txt");
 				fr << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
 				fr << "_____________________________________________________________________________" << endl;
 				for (int i = 0; i < n; i++)
 					fr << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << setw(30) << setfill(' ') << S[i].kintamasis1 << endl;
-				fr.close();
+				fr.close();*/
+				FileName2 = "kursiokai.txt";
+				print2(S,S.size());
 			}
 			else if (answer1 == ka)
 			{
@@ -70,61 +72,19 @@ int main()
 				for (int i = 0; i < kint; i++)
 				{
 					cout << "Iveskite n skaiciu: " << endl;
-					cin >> n;
-					FileName = "kursiokai" + to_string(n);
-					FileName += ".txt";
-					vargsiukai = "vargsiukai" + to_string(n);
+                    			cin >> n;
+                    			FileName = "kursiokai" + to_string(n);
+                    			FileName += ".txt";
+                    			vargsiukai = "vargsiukai" + to_string(n);
 					vargsiukai += ".txt";
 					galvotukai = "galvotukai" + to_string(n);
 					galvotukai += ".txt";
-					ofstream out4(galvotukai);
-					ofstream out5(vargsiukai);
 					ReadFromFile(S);
-					cout << "Kuria strategija norite naudoti?(t - 1, n - 2, k - 3) " << endl;
-					cin >> answer2;
-					cout << n << endl;
-					if (answer2 == yes)
-					{
-						Strategija1(S, G, V);
-						for (int j = 0; j < n1; j++)
-						{
-							out4 << G[j].name << setw(20) << setfill(' ') << G[j].lastname << setw(30) << setfill(' ') << setprecision(3) << G[j].finalVid << endl;
-						}
-						out4.close();
-						for (int j = 0; j < n2; j++)
-						{
-							out5 << V[j].name << setw(20) << setfill(' ') << V[j].lastname << setw(30) << setfill(' ') << setprecision(3) << V[j].finalVid << endl;
-						}
-						out5.close();
-					}
-					else if (answer2 == no)
-					{
-						Strategija2(S, V);
-						for (int j = 0; j < n2; j++)
-							out4 << S[j].name << setw(20) << setfill(' ') << S[j].lastname << setw(30) << setfill(' ') << setprecision(3) << S[j].finalVid << endl;
-						out4.close();
-						for (int j = 0; j < n1; j++)
-							out5 << V[j].name << setw(20) << setfill(' ') << V[j].lastname << setw(30) << setfill(' ') << setprecision(3) << V[j].finalVid << endl;
-						out5.close();
-					}
-					else if (answer2 == ka)	
-					{
-						auto start = chrono::steady_clock::now();
-						for (int j = 0; j < n; j++)
-						{
-							if (S[j].kintamasis1 == 1)
-							{
-								out4 << S[j].name << setw(20) << setfill(' ') << S[j].lastname << setw(30) << setfill(' ') << setprecision(3) << S[j].finalVid << endl;
-							}
-							else if (S[j].kintamasis1 == 0)
-							{
-								out5 << S[j].name << setw(20) << setfill(' ') << S[j].lastname << setw(30) << setfill(' ') << setprecision(3) << S[j].finalVid << endl;
-							}
-						}
-						out4.close();
-						out5.close();
-						cout << "Sugrupiuoti studentus i 'Galvotukus' ir 'Vargsiukus', faile su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
-					}
+					Strategija1(S, G, V);
+                    			FileName2 = vargsiukai;
+                    			print2(G,G.size());
+                    			FileName2 = galvotukai;
+                    			print2(V,V.size());
 				}
 			}
 		}
@@ -151,73 +111,19 @@ int main()
 				for (int i = 0; i < kint; i++)
 				{
 					cout << "Iveskite n skaiciu: " << endl;
-					cin >> n;
-					FileName = "kursiokai" + to_string(n);
-					FileName += ".txt";
-					Studentas temporary;
-					vargsiukai = "vargsiukai" + to_string(n);
+                    			cin >> n;
+                    			FileName = "kursiokai" + to_string(n);
+                    			FileName += ".txt";
+                    			vargsiukai = "vargsiukai" + to_string(n);
 					vargsiukai += ".txt";
 					galvotukai = "galvotukai" + to_string(n);
 					galvotukai += ".txt";
-					ofstream out4(galvotukai);
-					ofstream out5(vargsiukai);
-					ReadFromFile1(S);
-					cout << "Kuria strategija norite naudoti?(t - 1, n - 2, k - 3) " << endl;
-					cin >> answer2;
-					cout << n << endl;
-					if (answer2 == yes)
-					{
-						Strategija11(S, G, V);
-						for (int j = 0; j < G.size(); j++)
-						{
-							out4 << G.front().name << setw(20) << setfill(' ') << G.front().lastname << setw(30) << setfill(' ') << setprecision(3) << G.front().finalVid << endl;
-							G.pop_front();
-						}
-						out4.close();
-						cout << G.size() << endl;
-						cout << V.size() << endl;
-						for (int j = 0; j < V.size(); j++)
-						{
-							out5 << V.front().name << setw(20) << setfill(' ') << V.front().lastname << setw(30) << setfill(' ') << setprecision(3) << V.front().finalVid << endl;
-							V.pop_front();
-						}
-						out5.close();
-					}
-					else if (answer2 == no)
-					{
-						Strategija22(S, V);
-						for (int j = 0; j < S.size(); j++)
-						{
-							out4 << S.front().name << setw(20) << setfill(' ') << S.front().lastname << setw(30) << setfill(' ') << setprecision(3) << S.front().finalVid << endl;
-							S.pop_front();
-						}
-						out4.close();
-						for (int j = 0; j < V.size(); j++)
-						{
-							out5 << V.front().name << setw(20) << setfill(' ') << V.front().lastname << setw(30) << setfill(' ') << setprecision(3) << V.front().finalVid << endl;
-							V.pop_front();
-						}
-						out5.close();
-					}
-					else if (answer2 == ka)
-					{
-						auto start = chrono::steady_clock::now();
-						for (int j = 0; j < n; j++)
-						{
-							if (S.front().kintamasis1 == 1)
-							{
-								out4 << S.front().name << setw(20) << setfill(' ') << S.front().lastname << setw(30) << setfill(' ') << setprecision(3) << S.front().finalVid << endl;
-							}
-							else if (S.front().kintamasis1 == 0)
-							{
-								out5 << S.front().name << setw(20) << setfill(' ') << S.front().lastname << setw(30) << setfill(' ') << setprecision(3) << S.front().finalVid << endl;
-							}
-							S.pop_front();
-						}
-						out4.close();
-						out5.close();
-						cout << "Sugrupiuoti studentus i 'Galvotukus' ir 'Vargsiukus', faile su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
-					}
+					ReadFromFile(S);
+					Strategija1(S, G, V);
+                    			FileName2 = vargsiukai;
+                    			print(G,G.size());
+                    			FileName2 = galvotukai;
+                    			print(V,V.size());
 				}
 			}
 		}
@@ -260,7 +166,7 @@ int main()
 			}
 			else if (answer1 == no)
 			{
-				FileName = "kursiokai.txt";
+				/*FileName = "kursiokai.txt";
 				ReadFromFile(S);
 				ofstream fr("rez.txt");
 				fr << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
@@ -268,73 +174,34 @@ int main()
 				for (int i = 0; i < n; i++)
 					fr << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << setw(30) << setfill(' ') << S[i].kintamasis1 << endl;
 				fr.close();
+				FileName2 = "kursiokai.txt";*/
+				print(S,S.size());
 			}
 			else if (answer1 == ka)
 			{
 				cout << "Kiek failu norite nuskaityti (nuo 1 iki 5)? : ";
 				cin >> kint;
-				for (int i = 0; i < kint; i++)
-				{
-					cout << "Iveskite n skaiciu: " << endl;
-					cin >> n;
-					FileName = "kursiokai" + to_string(n);
-					FileName += ".txt";
-					vargsiukai = "vargsiukai" + to_string(n);
+                		for(int i=0; i<kint; i++)
+                		{
+                    			cout << "Iveskite n skaiciu: " << endl;
+                    			cin >> n;
+                    			FileName = "kursiokai" + to_string(n);
+                    			FileName += ".txt";
+                    			vargsiukai = "vargsiukai" + to_string(n);
 					vargsiukai += ".txt";
 					galvotukai = "galvotukai" + to_string(n);
 					galvotukai += ".txt";
-					ofstream out4(galvotukai);
-					ofstream out5(vargsiukai);
 					ReadFromFile(S);
-					cout << "Kuria strategija norite naudoti?(t - 1, n - 2, k - 3) " << endl;
-					cin >> answer2;
-					cout << n << endl;
-					if (answer2 == yes)
-					{
-						Strategija1(S, G, V);
-						for (int j = 0; j < n1; j++)
-						{
-							out4 << G[j].name << setw(20) << setfill(' ') << G[j].lastname << setw(30) << setfill(' ') << setprecision(3) << G[j].finalVid << endl;
-						}
-						out4.close();
-						for (int j = 0; j < n2; j++)
-						{
-							out5 << V[j].name << setw(20) << setfill(' ') << V[j].lastname << setw(30) << setfill(' ') << setprecision(3) << V[j].finalVid << endl;
-						}
-						out5.close();
-					}
-					else if (answer2 == no)
-					{
-						Strategija2(S, V);
-						for (int j = 0; j < n2; j++)
-							out4 << S[j].name << setw(20) << setfill(' ') << S[j].lastname << setw(30) << setfill(' ') << setprecision(3) << S[j].finalVid << endl;
-						out4.close();
-						for (int j = 0; j < n1; j++)
-							out5 << V[j].name << setw(20) << setfill(' ') << V[j].lastname << setw(30) << setfill(' ') << setprecision(3) << V[j].finalVid << endl;
-						out5.close();
-					}
-					else if (answer2 == ka)
-					{
-						auto start = chrono::steady_clock::now();
-						for (int j = 0; j < n; j++)
-						{
-							if (S[j].kintamasis1 == 1)
-							{
-								out4 << S[j].name << setw(20) << setfill(' ') << S[j].lastname << setw(30) << setfill(' ') << setprecision(3) << S[j].finalVid << endl;
-							}
-							else if (S[j].kintamasis1 == 0)
-							{
-								out5 << S[j].name << setw(20) << setfill(' ') << S[j].lastname << setw(30) << setfill(' ') << setprecision(3) << S[j].finalVid << endl;
-							}
-						}
-						out4.close();
-						out5.close();
-						cout << "Sugrupiuoti studentus i 'Galvotukus' ir 'Vargsiukus', faile su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
-					}
+					Strategija1(S, G, V);
+                    			FileName2 = vargsiukai;
+                    			print(G,G.size());
+                    			FileName2 = galvotukai;
+                    			print(V,V.size());
 				}
 			}
 		}
 	}
+
 	catch (int ex4)
 	{
 		cout << "Ivedete netinkama skaiciu, paleiskite programa isnaujo.";
