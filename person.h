@@ -9,6 +9,7 @@ class Person{
         double finalVid;
 	double finalMed;
     public:
+	Person() {};
         string getName() const { return name; }
 	string getLastname() const { return lastname; }
         double getFinalVid() const { return finalVid; }
