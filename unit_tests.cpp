@@ -1,39 +1,23 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-#include "functions.hpp"
-#include <vector>
+#include "funkcija1.hpp"
 
-TEST_CASE("Tikrinama Student klase")
+TEST_CASE("Klase veikia tikslingai")
 {
-	Student Students;
-	std::vector<int> grades = { 10,8,8,7,6,4,10,4 };
-
-	REQUIRE(Students.getName().size() == 0);
-	REQUIRE(Students.getLastName().size() == 0);
-	SECTION("Vardo ir pavardes nuskaitymas")
-	{
-		Students.setName("Aiste");
-		Students.setLastName("Stonciute");
-		REQUIRE(Students.getName() == "Aiste");
-		REQUIRE(Students.getLastName() == "Stonciute");
-	}
-
-	SECTION("Gaunamas egzamino pazymys")
-	{
-		Students.setExam(4);
-		REQUIRE(Students.getExam() == 4);
-	}
-
-	SECTION("Gaunamas galutinis studento pazymys")
-	{
-		Students.setFinalGrade(7);
-		REQUIRE(Students.getFinalGrade() == 7);
-	}
-
-	SECTION("Gaunamí namu darbu pazymiai")
-	{
-		Students.setHw(grades);
-		REQUIRE(Students.getHw() == grades);
-	}
-
+    Studentas Student;
+    REQUIRE(Student.getName().size() == 0);
+    REQUIRE(Student.getLastname().size() == 0);
+    SECTION("Setteriai ir getteriai veikia tikslingai")
+    {
+        Student.setName("vardenis");
+        Student.setLastname("pavardenis");
+        Student.setFinalVid(5.6);
+        Student.setFinalMed(5.7);
+        Student.setKint1(0);
+        REQUIRE(Student.getName() == "vardenis");
+        REQUIRE(Student.getLastname() == "pavardenis");
+        REQUIRE(Student.getFinalVid() == 5.6);
+        REQUIRE(Student.getFinalMed() == 5.7);
+        REQUIRE(Student.getKint1() == 0);
+    }
 }
