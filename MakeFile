@@ -1,23 +1,22 @@
-#include <string>
+run: 
+	g++ -std=c++11 main.cpp -o main
+	./main
 
-using namespace std;
+flag1:
+	g++ -O1 -std=c++11 main.cpp -o main
+	./main
 
-class Person{
-    protected:
-        string name;
-        string lastname;
-        double finalVid;
-	double finalMed;
-    public:
-        string getName() const { return name; }
-	string getLastname() const { return lastname; }
-        double getFinalVid() const { return finalVid; }
-	double getFinalMed() const { return finalMed; }
-        void setName(string n) { name = n; }
-	void setLastname(string ln) { lastname = ln; }
-        void setFinalVid(double fv) { finalVid = fv; }
-	void setFinalMed(double fm) { finalMed = fm; }
-        virtual ~Person () = 0;
-};
+flag2:
+	g++ -O2 -std=c++11 main.cpp -o main
+	./main
 
-inline Person::~Person() {}
+flag3:
+	g++ -O3 -std=c++11 main.cpp -o main
+	./main
+
+clean: 
+	del *.exe
+
+tests:
+	g++ -std=c++11 unit_test.cpp -o test
+	./test
